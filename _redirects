@@ -1,0 +1,23 @@
+# Cloudflare Pages Redirect Rules
+# 格式: /source  /destination  status
+
+# 1. 独享成品号 (Naifei ID: 243)
+/go/buy-private  https://www.naifeistation.com/index/buy?id=243&invite=3903  302
+
+# 2. 代充升级 (Naifei ID: 259)
+/go/recharge     https://www.naifeistation.com/index/buy?id=259&invite=3903  302
+
+# 3. 拼车共享号 (Accboy)
+/go/shared       https://accboyytbxmdh.acceboy.com/zh-cn-cny/buy-midjourney   302
+
+# 4. 国内直连版 (银河录像局 - Nf.video)
+/go/galaxy       https://nf.video/?gid=26                                     302
+
+# 5. Discord 账号 (Accboy)
+/go/discord      https://accboyytbxmdh.acceboy.com/zh-cn-cny/buy-Discord      302
+
+# 6. 客服支持 (Naifei Invite)
+/go/support      https://www.naifeistation.com/i/Satqr                        302
+
+# 7. 兜底跳转
+/go/* https://www.naifeistation.com/index/buy?invite=3903          302

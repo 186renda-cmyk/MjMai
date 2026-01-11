@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#020617"/>
+  <circle cx="0" cy="0" r="500" fill="#7c3aed" opacity="0.2" filter="url(#blur)"/>
+  <circle cx="1200" cy="630" r="500" fill="#d946ef" opacity="0.2" filter="url(#blur)"/>
+  <defs>
+    <filter id="blur">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="60" />
+    </filter>
+  </defs>
+  <text x="600" y="280" font-family="sans-serif" font-weight="bold" font-size="100" fill="white" text-anchor="middle">MjMai</text>
+  <text x="600" y="380" font-family="sans-serif" font-size="48" fill="#e2e8f0" text-anchor="middle">Midjourney V6 &amp; Niji 国内直连</text>
+  <text x="600" y="500" font-family="sans-serif" font-size="32" fill="#cbd5e1" text-anchor="middle">✅ 独享成品号   ✅ 无限Relax生图   ✅ 拼车低至¥29</text>
+</svg>

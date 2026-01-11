@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
+  <rect width="800" height="800" fill="#0f172a"/>
+  <circle cx="400" cy="400" r="300" fill="#7c3aed" opacity="0.3" filter="url(#blur)"/>
+  <defs>
+    <filter id="blur">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="40" />
+    </filter>
+  </defs>
+  
+  <!-- Glassmorphism Card -->
+  <rect x="100" y="200" width="600" height="400" rx="24" fill="white" fill-opacity="0.05" stroke="white" stroke-opacity="0.1" stroke-width="2"/>
+  
+  <text x="400" y="360" font-family="sans-serif" font-weight="bold" font-size="48" fill="white" text-anchor="middle">Midjourney V6</text>
+  <text x="400" y="430" font-family="sans-serif" font-size="36" fill="#cbd5e1" text-anchor="middle">无限 Relax 模式</text>
+  
+  <!-- Button -->
+  <rect x="250" y="500" width="300" height="70" rx="35" fill="#d946ef"/>
+  <text x="400" y="546" font-family="sans-serif" font-weight="bold" font-size="28" fill="white" text-anchor="middle">立即开通</text>
+</svg>
