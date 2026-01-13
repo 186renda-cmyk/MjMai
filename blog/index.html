@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MjMai 官方博客，分享 Midjourney 使用教程、会员购买攻略、提示词技巧以及 AI 绘画行业最新动态。">
+    <meta name="keywords" content="Midjourney教程, Midjourney博客, AI绘画资讯, MJ会员攻略">
+    <title>MjMai 博客 - Midjourney 教程与资讯中心</title>
+    <link rel="icon" href="/logo.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif', 'system-ui'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        mj: {
+                            bg: '#020617',     // Slate-950
+                            card: '#0f172a',   // Slate-900
+                            primary: '#7c3aed', // Violet-600
+                            accent: '#d946ef',  // Fuchsia-500
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #020617; }
+        .glass-card { 
+            background: rgba(15, 23, 42, 0.6); 
+            backdrop-filter: blur(12px); 
+            border: 1px solid rgba(255, 255, 255, 0.08); 
+        }
+    </style>
+</head>
+<body class="bg-mj-bg text-slate-200 font-sans antialiased flex flex-col min-h-screen">
+
+    <!-- Header -->
+    <header class="fixed w-full z-50 top-0 start-0 border-b border-white/5 bg-mj-bg/80 backdrop-blur-xl transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap items-center justify-between mx-auto p-4">
+                
+                <a href="../index.html" class="flex items-center gap-2 group">
+                    <div class="w-10 h-10 bg-gradient-to-br from-violet-600 to-fuchsia-600 rounded-xl flex items-center justify-center text-white font-bold font-display text-xl shadow-[0_0_15px_rgba(124,58,237,0.3)] group-hover:shadow-[0_0_25px_rgba(124,58,237,0.5)] transition-all">M</div>
+                    <div class="flex flex-col">
+                        <span class="text-xl font-bold text-white tracking-tight font-display leading-none">Mj<span class="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-fuchsia-400">Mai</span></span>
+                        <span class="text-[10px] text-slate-400 tracking-wider font-mono">PRO SERVICE</span>
+                    </div>
+                </a>
+
+                <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-slate-400 rounded-lg md:hidden hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-violet-500" aria-controls="navbar-default" aria-expanded="false" onclick="toggleMenu()">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                    </svg>
+                </button>
+
+                <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+                    <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-white/10 rounded-2xl bg-slate-900/90 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-transparent">
+                        <li>
+                            <a href="../index.html#features" class="block py-2 px-3 text-slate-300 rounded hover:bg-white/10 md:hover:bg-transparent md:border-0 md:hover:text-violet-400 md:p-0 transition-colors">功能优势</a>
+                        </li>
+                        <li>
+                            <a href="../index.html#pricing-private" class="block py-2 px-3 text-slate-300 rounded hover:bg-white/10 md:hover:bg-transparent md:border-0 md:hover:text-violet-400 md:p-0 transition-colors">价格方案</a>
+                        </li>
+                        <li>
+                            <a href="../index.html#gpu-guide" class="block py-2 px-3 text-slate-300 rounded hover:bg-white/10 md:hover:bg-transparent md:border-0 md:hover:text-violet-400 md:p-0 transition-colors">使用教程</a>
+                        </li>
+                        <li>
+                            <a href="../index.html#faq" class="block py-2 px-3 text-slate-300 rounded hover:bg-white/10 md:hover:bg-transparent md:border-0 md:hover:text-violet-400 md:p-0 transition-colors">常见问题</a>
+                        </li>
+                        <li>
+                            <a href="index.html" class="block py-2 px-3 text-violet-400 font-bold rounded hover:bg-white/10 md:hover:bg-transparent md:border-0 md:p-0 transition-colors">博客资讯</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="hidden md:block">
+                    <a href="../index.html#pricing-private" class="group relative inline-flex items-center justify-center px-6 py-2 text-sm font-bold text-white transition-all duration-200 bg-white/10 font-pj rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-600 border border-white/10 hover:bg-white/20 hover:border-violet-500/50 hover:shadow-[0_0_20px_rgba(124,58,237,0.3)]">
+                        立即开通
+                        <svg class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+        
+        <script>
+            function toggleMenu() {
+                const nav = document.getElementById('navbar-default');
+                nav.classList.toggle('hidden');
+            }
+        </script>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-32 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-grow">
+        
+        <!-- Breadcrumbs -->
+        <nav class="flex mb-12 text-sm text-slate-500" aria-label="Breadcrumb">
+            <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                <li class="inline-flex items-center">
+                    <a href="../index.html" class="inline-flex items-center hover:text-white transition-colors">
+                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
+                        首页
+                    </a>
+                </li>
+                <li aria-current="page">
+                    <div class="flex items-center">
+                        <svg class="w-6 h-6 text-slate-700" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                        <span class="ml-1 font-medium text-violet-400 md:ml-2">博客</span>
+                    </div>
+                </li>
+            </ol>
+        </nav>
+
+        <header class="mb-16 text-center">
+            <h1 class="text-4xl md:text-6xl font-display font-bold text-white mb-6">
+                MjMai <span class="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-fuchsia-400">资讯中心</span>
+            </h1>
+            <p class="text-lg text-slate-400 max-w-2xl mx-auto">
+                探索 Midjourney 的无限可能，掌握最新 AI 绘画技巧与购买攻略。
+            </p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Article Card 1 -->
+            <article class="glass-card rounded-2xl overflow-hidden group hover:border-violet-500/50 transition-all duration-300">
+                <div class="h-48 bg-gradient-to-br from-violet-900/50 to-slate-900 flex items-center justify-center relative overflow-hidden">
+                    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjwvc3ZnPg==')] opacity-30"></div>
+                    <div class="w-16 h-16 bg-violet-600/20 rounded-2xl flex items-center justify-center text-violet-400 text-3xl group-hover:scale-110 transition-transform duration-300">
+                        💎
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center gap-2 mb-4 text-xs font-bold uppercase tracking-wider text-violet-400">
+                        <span>购买指南</span>
+                        <span class="w-1 h-1 rounded-full bg-slate-600"></span>
+                        <span>5 Min Read</span>
+                    </div>
+                    <h2 class="text-xl font-bold text-white mb-3 group-hover:text-violet-300 transition-colors">
+                        <a href="midjourney-membership-guide.html">Midjourney 会员全攻略：价格方案与避坑指南</a>
+                    </h2>
+                    <p class="text-slate-400 text-sm mb-6 line-clamp-2">
+                        详细解析 Basic/Standard/Pro 四大订阅档位，教你如何国内购买、拼车省钱，以及如何避开低价陷阱。
+                    </p>
+                    <a href="midjourney-membership-guide.html" class="inline-flex items-center text-sm font-bold text-white hover:text-violet-400 transition-colors">
+                        阅读全文
+                        <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Article Card 2 -->
+            <article class="glass-card rounded-2xl overflow-hidden group hover:border-violet-500/50 transition-all duration-300">
+                <div class="h-48 bg-gradient-to-br from-fuchsia-900/50 to-slate-900 flex items-center justify-center relative overflow-hidden">
+                    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjwvc3ZnPg==')] opacity-30"></div>
+                    <div class="w-16 h-16 bg-fuchsia-600/20 rounded-2xl flex items-center justify-center text-fuchsia-400 text-3xl group-hover:scale-110 transition-transform duration-300">
+                        🚀
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center gap-2 mb-4 text-xs font-bold uppercase tracking-wider text-fuchsia-400">
+                        <span>新手教程</span>
+                        <span class="w-1 h-1 rounded-full bg-slate-600"></span>
+                        <span>8 Min Read</span>
+                    </div>
+                    <h2 class="text-xl font-bold text-white mb-3 group-hover:text-fuchsia-300 transition-colors">
+                        <a href="midjourney-usage-guide.html">Midjourney 新手入门指南：从注册到精通指令</a>
+                    </h2>
+                    <p class="text-slate-400 text-sm mb-6 line-clamp-2">
+                        手把手教你注册 Discord、掌握万能提示词公式，以及 /imagine、/blend 等核心指令的实战用法。
+                    </p>
+                    <a href="midjourney-usage-guide.html" class="inline-flex items-center text-sm font-bold text-white hover:text-fuchsia-400 transition-colors">
+                        阅读全文
+                        <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Article Card 3 -->
+            <article class="glass-card rounded-2xl overflow-hidden group hover:border-blue-500/50 transition-all duration-300">
+                <div class="h-48 bg-gradient-to-br from-blue-900/50 to-slate-900 flex items-center justify-center relative overflow-hidden">
+                    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjwvc3ZnPg==')] opacity-30"></div>
+                    <div class="w-16 h-16 bg-blue-600/20 rounded-2xl flex items-center justify-center text-blue-400 text-3xl group-hover:scale-110 transition-transform duration-300">
+                        ⚖️
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center gap-2 mb-4 text-xs font-bold uppercase tracking-wider text-blue-400">
+                        <span>工具对比</span>
+                        <span class="w-1 h-1 rounded-full bg-slate-600"></span>
+                        <span>6 Min Read</span>
+                    </div>
+                    <h2 class="text-xl font-bold text-white mb-3 group-hover:text-blue-300 transition-colors">
+                        <a href="midjourney-vs-gemini.html">Midjourney vs Gemini：谁是 AI 创作界的“六边形战士”？</a>
+                    </h2>
+                    <p class="text-slate-400 text-sm mb-6 line-clamp-2">
+                        深度对比 MJ 和 Gemini 的核心优势与画风差异，揭秘如何用 Gemini 为 MJ 写出神级提示词。
+                    </p>
+                    <a href="midjourney-vs-gemini.html" class="inline-flex items-center text-sm font-bold text-white hover:text-blue-400 transition-colors">
+                        阅读全文
+                        <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                </div>
+            </article>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-white/5 py-12 text-center mt-auto">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6 mb-8 text-sm text-slate-400">
+                <a href="../index.html" class="hover:text-white transition-colors">首页</a>
+                <a href="../legal.html" class="hover:text-white transition-colors">服务条款</a>
+                <a href="../legal.html" class="hover:text-white transition-colors">隐私政策</a>
+                <a href="../index.html#faq" class="hover:text-white transition-colors">帮助中心</a>
+            </div>
+            <p class="text-xs text-slate-600">
+                &copy; 2026 MjMai.top. All rights reserved. <br>
+                MjMai is an independent service provider.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
