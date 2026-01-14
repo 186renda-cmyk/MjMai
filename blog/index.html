@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="MjMai 官方博客，分享 Midjourney 使用教程、会员购买攻略、提示词技巧以及 AI 绘画行业最新动态。">
     <meta name="keywords" content="Midjourney教程, Midjourney博客, AI绘画资讯, MJ会员攻略">
+    <meta name="distribution" content="global">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mjmai.top/blog/index.html">
+    <link rel="alternate" hreflang="zh" href="https://mjmai.top/blog/index.html">
+    <link rel="alternate" hreflang="x-default" href="https://mjmai.top/blog/index.html">
     <title>MjMai 博客 - Midjourney 教程与资讯中心</title>
     <link rel="icon" href="/logo.svg">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -38,6 +43,57 @@
             border: 1px solid rgba(255, 255, 255, 0.08); 
         }
     </style>
+    
+    <!-- 结构化数据优化：面包屑与列表页 -->
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://mjmai.top/"
+        },{
+          "@type": "ListItem",
+          "position": 2,
+          "name": "博客资讯",
+          "item": "https://mjmai.top/blog/index.html"
+        }]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "MjMai 资讯中心",
+        "description": "探索 Midjourney 的无限可能，掌握最新 AI 绘画技巧与购买攻略。",
+        "url": "https://mjmai.top/blog/index.html",
+        "mainEntity": {
+          "@type": "ItemList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "url": "https://mjmai.top/blog/midjourney-membership-guide.html",
+              "name": "Midjourney 会员全攻略：价格方案与避坑指南"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "url": "https://mjmai.top/blog/midjourney-usage-guide.html",
+              "name": "Midjourney 新手入门指南：从注册到精通指令"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "url": "https://mjmai.top/blog/midjourney-vs-gemini.html",
+              "name": "Midjourney vs Gemini：谁是 AI 创作界的“六边形战士”？"
+            }
+          ]
+        }
+      }
+    ]
+    </script>
 </head>
 <body class="bg-mj-bg text-slate-200 font-sans antialiased flex flex-col min-h-screen">
 
