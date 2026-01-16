@@ -7,31 +7,31 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://mjmai.top/legal.html</loc>
+    <loc>https://mjmai.top/legal</loc>
     <lastmod>2026-01-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mjmai.top/blog/index.html</loc>
+    <loc>https://mjmai.top/blog/</loc>
     <lastmod>2026-01-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://mjmai.top/blog/midjourney-membership-guide.html</loc>
+    <loc>https://mjmai.top/blog/midjourney-membership-guide</loc>
     <lastmod>2026-01-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mjmai.top/blog/midjourney-usage-guide.html</loc>
+    <loc>https://mjmai.top/blog/midjourney-usage-guide</loc>
     <lastmod>2026-01-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mjmai.top/blog/midjourney-vs-gemini.html</loc>
+    <loc>https://mjmai.top/blog/midjourney-vs-gemini</loc>
     <lastmod>2026-01-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
