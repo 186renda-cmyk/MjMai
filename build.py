@@ -279,7 +279,7 @@ class StaticSiteBuilder:
                     ]
                 }
             }
-        return json.dumps(schema, ensure_ascii=False)
+        return json.dumps(schema, ensure_ascii=False, indent=4)
 
     def generate_card_html(self, page):
         """Generate a card HTML for the article (for Index/List pages)"""
@@ -546,7 +546,7 @@ class StaticSiteBuilder:
             })
             
         new_schema = soup.new_tag('script', type='application/ld+json')
-        new_schema.string = json.dumps(schema, ensure_ascii=False)
+        new_schema.string = json.dumps(schema, ensure_ascii=False, indent=4)
         if soup.head: soup.head.append(new_schema)
         
         with open(index_path, 'w', encoding='utf-8') as f:
