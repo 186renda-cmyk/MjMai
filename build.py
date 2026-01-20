@@ -83,6 +83,7 @@ class StaticSiteBuilder:
         # 2. Scan Root Pages (Type B)
         for file_path in self.root_dir.glob('*.html'):
             if file_path.name == SOURCE_FILE: continue # Skip index.html
+            if file_path.name.startswith('google'): continue # Skip google verification files
             self._parse_and_add_page(file_path, page_type='page')
 
         # Sort by date descending (mainly for articles, but keeps list consistent)
@@ -603,7 +604,7 @@ class StaticSiteBuilder:
         xml_content.append('</urlset>')
         
         with open(sitemap_path, 'w', encoding='utf-8') as f:
-            f.write('\\n'.join(xml_content))
+            f.write('\n'.join(xml_content))
             
         self.log(f"✅ Sitemap 已更新: {len(self.pages) + 2} 个链接")
 
@@ -615,4 +616,4 @@ if __name__ == "__main__":
     builder.update_home_page()
     builder.update_blog_index()
     builder.generate_sitemap()
-    print("\\n🎉 构建完成！页面类型检测已启用 (Article/Page)。")
+    print("\n🎉 构建完成！页面类型检测已启用 (Article/Page)。")
