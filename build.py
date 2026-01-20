@@ -553,6 +553,60 @@ class StaticSiteBuilder:
             f.write(str(soup))
         self.log("聚合页已更新")
 
+    def generate_sitemap(self):
+        """Generate sitemap.xml"""
+        self.log("生成 sitemap.xml...")
+        sitemap_path = self.root_dir / "sitemap.xml"
+        
+        xml_content = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+        
+        # Add Homepage
+        xml_content.append(f'''  <url>
+    <loc>{BASE_URL}/</loc>
+    <lastmod>{datetime.date.today().isoformat()}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>''')
+
+        # Add Blog Index
+        xml_content.append(f'''  <url>
+    <loc>{BASE_URL}/blog/</loc>
+    <lastmod>{datetime.date.today().isoformat()}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>''')
+
+        # Add all pages
+        for page in self.pages:
+            # Adjust priority based on type
+            priority = "0.8"
+            changefreq = "monthly"
+            
+            if page['type'] == 'article':
+                changefreq = "weekly"
+            
+            if page['type'] == 'page':
+                 priority = "0.8"
+                 changefreq = "monthly"
+            
+            # Ensure full URL
+            full_url = f"{BASE_URL}{page['url']}"
+            date_str = page['date'].strftime('%Y-%m-%d')
+            
+            xml_content.append(f'''  <url>
+    <loc>{full_url}</loc>
+    <lastmod>{date_str}</lastmod>
+    <changefreq>{changefreq}</changefreq>
+    <priority>{priority}</priority>
+  </url>''')
+            
+        xml_content.append('</urlset>')
+        
+        with open(sitemap_path, 'w', encoding='utf-8') as f:
+            f.write('\\n'.join(xml_content))
+            
+        self.log(f"✅ Sitemap 已更新: {len(self.pages) + 2} 个链接")
+
 if __name__ == "__main__":
     builder = StaticSiteBuilder()
     builder.load_templates()
@@ -560,4 +614,5 @@ if __name__ == "__main__":
     builder.process_pages() # Renamed from process_articles
     builder.update_home_page()
     builder.update_blog_index()
-    print("\n🎉 构建完成！页面类型检测已启用 (Article/Page)。")
+    builder.generate_sitemap()
+    print("\\n🎉 构建完成！页面类型检测已启用 (Article/Page)。")
